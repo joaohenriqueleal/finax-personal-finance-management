@@ -1,0 +1,3 @@
+# Finax
+
+- Status: In development :)
