@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+
+@layer utilities {
+    @keyframes anim-message-open {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0%); }
+    }
+
+    .anim-message-open {
+        animation: anim-message-open .3s
+            cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+}

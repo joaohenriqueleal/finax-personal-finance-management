@@ -1,2 +1,12 @@
 @charset "UTF-8";
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@import "./animations/anim-message-close.css";
+@import "./animations/anim-message-open.css";
+
+
+@theme {
+    --color-brand-200: #24e78c;
+    --color-brand-300: #1DBF73;
+    --color-brand-500: #116b41;
+}
