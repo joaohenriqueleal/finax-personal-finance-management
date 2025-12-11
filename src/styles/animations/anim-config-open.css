@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+
+@layer utilities {
+    @keyframes anim-config-open {
+        from { transform: translateY(100%); }
+        to { transform: translateY(0%); }
+    }
+
+    .anim-config-open {
+        animation: anim-config-open .3s ease-in-out forwards;
+    }
+}

@@ -40,6 +40,50 @@ export default abstract class APIUsers {
         return { success: 'Usuário cadastrado com sucesso!' }
     }
 
+    static deleteUser(password: string) : APIResponse {
+        const userPassword = password.trim()
+
+        if (!userPassword) {
+            return { error: 'Por favvor, preencha todos os campos corretamente!' }
+        }
+
+        if (!(userPassword == Globals.actualUser.password)) {
+            return { error: 'Senha incorreta inserida!' }
+        }
+
+        this.users = this.users.filter(
+            u => u.username.toLowerCase() != Globals.actualUser.username.toLowerCase()
+        )
+        this.saveUsers()
+        Globals.removeActualUser()
+
+        return { success: 'Usuário deletado com sucesso!' }
+    }
+
+    static editUsername(newUsername: string) : APIResponse {
+        const name: string = newUsername.trim()
+        if (!name) {
+            return { error: 'Por favor, preencha todos os capos corretamente!' }
+        }
+
+        const usersAdded = [...this.users, {username: newUsername, password: '', createdAt: 0}]
+        let countUsersNameEqualName: number = usersAdded.reduce(
+            (acc, user) => user.username.toLowerCase() == name.toLowerCase() ? acc + 1 : acc, 0);
+        if (countUsersNameEqualName > 1) {
+            return { error: 'Já existe um usuário com esse nome! Tente outro!' }
+        }
+
+        this.users = this.users.map((u) => {
+            if (u.username.toLowerCase() == Globals.actualUser.username.toLowerCase()) return { ...u, username: name }
+            return u
+        })
+        
+        this.saveUsers()
+        Globals.actualUser = {...Globals.actualUser, username: name}
+
+        return { success: 'Nome alterado com sucesso!' }
+    }
+
     static loginUser(username: string, password: string) : APIResponse {
         username = username.trim()
         password = password.trim()

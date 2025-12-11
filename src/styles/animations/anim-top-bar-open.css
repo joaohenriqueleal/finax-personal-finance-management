@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+
+@layer utilities {
+    @keyframes anim-top-bar-open {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0%); }
+    }
+
+    .anim-top-bar-open {
+        animation: anim-top-bar-open .3s ease-in-out forwards;
+    }
+}

@@ -19,6 +19,10 @@ export default abstract class Globals {
         return user
     }
 
+    static removeActualUser() : void {
+        localStorage.removeItem(this.actualUserStorage)
+    }
+
     static get actualUser() { return this._actualUser }
     static set actualUser(user: LoginUser) {
         this._actualUser = user
