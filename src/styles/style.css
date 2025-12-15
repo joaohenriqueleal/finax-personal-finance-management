@@ -15,3 +15,12 @@
     --color-brand-300: #1DBF73;
     --color-brand-500: #116b41;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Firefox */
+.no-scrollbar {
+    scrollbar-width: none;
+}

@@ -1,10 +1,18 @@
+import { useState } from "react"
+
+import ButtonShowData from "../components/input/buttons/ButtonShowData"
 import PageContainer from "../components/layout/PageContainer"
 import Header from "../components/layout/Header"
 import Menu from "../components/layout/Menu"
+import Main from "../components/layout/Main"
 import Title from "../components/ui/Title"
 
 // TopBar components
 import AboutAppBar from "../components/windows/app-bar/AboutAppBar"
+
+// Sections
+import SectionControlPanel from "../components/pages/SectionControlPanel"
+import SectionBalance from "../components/pages/SectionBalance"
 
 import Globals from "../shared/Globals"
 
@@ -14,6 +22,8 @@ interface HomeProps {
 
 
 export default function Home({ setAuth } : HomeProps ) {
+    const [showBalance, setShowBalance] = useState<boolean>(true)
+    
     return (
         <PageContainer>
             <Header
@@ -24,7 +34,11 @@ export default function Home({ setAuth } : HomeProps ) {
                 >
                     <div className="flex items-center justify-between">
                         <Menu setAuth={setAuth} />
-                        <div>
+                        <div className="flex gap-2">
+                            <ButtonShowData
+                                setShowData={setShowBalance}
+                                showData={showBalance}
+                            />
                             <AboutAppBar />
                         </div>
                     </div>
@@ -34,6 +48,12 @@ export default function Home({ setAuth } : HomeProps ) {
                     />
                 </div>
             </Header>
+            <Main extraStyles="p-4 lg:px-0 max-w-4xl mx-auto flex flex-col gap-6">
+                <SectionBalance
+                    showBalance={showBalance}
+                />
+                <SectionControlPanel />
+            </Main>
         </PageContainer>
     )
 }

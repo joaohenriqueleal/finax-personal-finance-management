@@ -51,8 +51,8 @@ export default function ProfileConfigAppBar({ setShowConfigTAB, setAuth } : Prof
                 >
                     <div className="flex flex-col gap-16 text-black max-w-4xl mx-auto">
                         <Input
-                            inputStyles="p-4 outline-none border-2 border-black shadow-[2px_2px_black]
-                                hover:shadow-none transition duration-300 focus:shadow-[2px_2px_gray]"
+                            inputStyles="p-4 outline-none border-2 transition shadow duration-300
+                                focus:border-gray-400"
                             placeholder="Insira seu novo nome de usuário"
                             handleChange={setNewUsername}
                             label="Novo nome:"
