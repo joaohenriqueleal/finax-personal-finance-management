@@ -4,7 +4,7 @@ import type { APIResponse } from "../../types/APIResponse"
 import type { Category } from "../../types/Category"
 
 export default abstract class APICategories {
-    static categoriesStorage: string = `${Globals.actualUser.username}:categories`
+    static categoriesStorage: string = `${Globals._actualUser.username}:categories`
     static categories: Category[] = this.loadCategories()
 
     static loadCategories() : Category[] {

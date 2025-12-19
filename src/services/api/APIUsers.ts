@@ -1,5 +1,7 @@
-import Globals from "../../shared/Globals"
 import APICategories from "./APICategories"
+import APIRents from "./APIRents"
+
+import Globals from "../../shared/Globals"
 
 import type { APIResponse } from "../../types/APIResponse"
 import type { User } from "../../types/User"
@@ -56,7 +58,10 @@ export default abstract class APIUsers {
             u => u.username.toLowerCase() != Globals.actualUser.username.toLowerCase()
         )
         this.saveUsers()
+
         APICategories.removeActualUserCategories()
+        APIRents.removeActualUserRents()
+
         Globals.removeActualUser()
 
         return { success: 'Usuário deletado com sucesso!' }
@@ -81,7 +86,10 @@ export default abstract class APIUsers {
         })
         
         this.saveUsers()
+
         APICategories.onSwitchUsername(name)
+        APIRents.onSwitchUsername(name)
+
         Globals.actualUser = {...Globals.actualUser, username: name}
 
         return { success: 'Nome alterado com sucesso!' }

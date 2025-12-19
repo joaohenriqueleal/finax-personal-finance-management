@@ -36,6 +36,7 @@ export default function Register({ setAuth } : RegisterProps ) {
 
         if (response.success) {
             Globals.actualUser = { username, password }
+            location.reload()
             setAuth(true)
         }
         setMessageToShow(response.error || response.success || '')

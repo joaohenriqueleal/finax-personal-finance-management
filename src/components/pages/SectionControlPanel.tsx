@@ -1,7 +1,11 @@
 import { useRef } from "react"
-import PanelOption from "../items/PanelOption"
+
 import CategoriesAppBar from "../windows/app-bar/CategoriesAppBar"
-import { FaTh } from "react-icons/fa"
+import RentAppBar from "../windows/app-bar/RentAppBar"
+import PanelOption from "../items/PanelOption"
+
+import { FaTh, FaArrowUp } from "react-icons/fa"
+
 
 export default function SectionControlPanel() {
     const scrollRef = useRef<HTMLDivElement>(null)
@@ -37,15 +41,20 @@ export default function SectionControlPanel() {
                     flex gap-8 overflow-x-auto select-none
                     no-scrollbar py-4
                 "
-                onMouseDown={onMouseDown}
                 onMouseLeave={onMouseLeave}
-                onMouseUp={onMouseUp}
+                onMouseDown={onMouseDown}
                 onMouseMove={onMouseMove}
+                onMouseUp={onMouseUp}
             >
                 <PanelOption
                     Tab={CategoriesAppBar}
                     legend="Categorias"
                     icon={<FaTh />}
+                />
+                <PanelOption
+                    icon={<FaArrowUp />}
+                    Tab={RentAppBar}
+                    legend="Rendas"
                 />
             </div>
         </section>

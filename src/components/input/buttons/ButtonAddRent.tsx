@@ -1,42 +1,38 @@
 import { useState } from "react"
 
-import APICategories from "../../../services/api/APICategories"
 import Message from "../../windows/Message"
 import Button from "../Button"
 
 import type { APIResponse } from "../../../types/APIResponse"
+import APIRents from "../../../services/api/APIRents"
 
-interface ButtonCreateNewCategoryProps {
-    categoryDescription: string
-    categoryMonthGoal: number
-    categoryName: string
+interface ButtonAddRentProps {
+    newRentDescription: string
+    newRentValue: number
 }
 
 
-export default function ButtonCreateNewCategory(
-    {
-        categoryDescription, categoryName, categoryMonthGoal
-    } : ButtonCreateNewCategoryProps ) {
+export default function ButtonAddRent({ newRentDescription, newRentValue } : ButtonAddRentProps ) {
     const [showMessage, setShowMessage] = useState<boolean>(false)
     const [messageToShow, setMessageToShow] = useState<string>('')
-
-    const createNewCategory = () => {
-        const response: APIResponse = APICategories.createNewCategory(
-            categoryDescription, categoryName, categoryMonthGoal
+    
+    const addRent = () => {
+        const response: APIResponse = APIRents.addRent(
+            newRentDescription, newRentValue
         )
 
         setMessageToShow(response.error || response.success || '')
         setShowMessage(true)
     }
-    
+
     return (
         <>
             <Button
-                extraStyles="self-end p-4 bg-brand-300 w-full text-white font-bold
+                extraStyles="bg-brand-300 p-4 text-white font-bold cursor-pointer
                     shadow-[2px_2px_green] hover:shadow-none hover:bg-brand-200
-                    transition duration-300 cursor-pointer"
-                handleClick={createNewCategory}
-                content="Criar"
+                    transition duration-300"
+                handleClick={addRent}
+                content="Adicionar"
             />
             {showMessage && (
                 <Message
