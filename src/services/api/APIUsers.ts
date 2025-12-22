@@ -1,4 +1,5 @@
 import APICategories from "./APICategories"
+import APIExpenses from "./APIExpenses"
 import APIRents from "./APIRents"
 
 import Globals from "../../shared/Globals"
@@ -61,6 +62,7 @@ export default abstract class APIUsers {
 
         APICategories.removeActualUserCategories()
         APIRents.removeActualUserRents()
+        APIExpenses.removeActualUserExpenses()
 
         Globals.removeActualUser()
 
@@ -88,6 +90,7 @@ export default abstract class APIUsers {
         this.saveUsers()
 
         APICategories.onSwitchUsername(name)
+        APIExpenses.onSwitchUsername(name)
         APIRents.onSwitchUsername(name)
 
         Globals.actualUser = {...Globals.actualUser, username: name}

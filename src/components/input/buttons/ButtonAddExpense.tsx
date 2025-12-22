@@ -1,31 +1,28 @@
 import { useState } from "react"
 
-import APICategories from "../../../services/api/APICategories"
 import type { APIResponse } from "../../../types/APIResponse"
+import APIExpenses from "../../../services/api/APIExpenses"
 
 import Message from "../../windows/Message"
 import Button from "../Button"
 
-interface ButtonEditCategoryProps {
-    newCategoryDescription: string
-    newCategoryMonthGoal: number
-    originalCategoryName: string
-    newCategoryName: string
+interface ButtonAddExpenseProps {
+    expenseDescription: string
+    selectedCategory: string
+    expenseValue: number
 }
 
 
-export default function ButtonEditCategory(
-    {
-        newCategoryDescription, newCategoryMonthGoal, newCategoryName,
-        originalCategoryName
-    } : ButtonEditCategoryProps ) {
+export default function ButtonAddExpense(
+    {  expenseDescription, selectedCategory, expenseValue } : ButtonAddExpenseProps ) {
     const [showMessage, setShowMessage] = useState<boolean>(false)
     const [messageToShow, setMessageToShow] = useState<string>('')
-
-    const editCategory = () => {
-        const response: APIResponse = APICategories.editCategory(
-            newCategoryDescription, newCategoryMonthGoal, newCategoryName,
-            originalCategoryName
+    
+    const addExpense = () => {
+        const response: APIResponse = APIExpenses.addExpense(
+            expenseDescription,
+            selectedCategory,
+            expenseValue
         )
 
         setMessageToShow(response.error || response.success || '')
@@ -35,11 +32,11 @@ export default function ButtonEditCategory(
     return (
         <>
             <Button
-                extraStyles="p-4 self-end bg-brand-300 text-white font-bold w-40
+                handleClick={addExpense}
+                extraStyles="p-4 self-end bg-brand-300 text-white font-bold w-full
                     shadow-[2px_2px_green] hover:bg-brand-200 hover:shadow-none
                     transition duration-300 cursor-pointer"
-                handleClick={editCategory}
-                content="Editar"
+                content="Adicionar"
             />
             {showMessage && (
                 <Message

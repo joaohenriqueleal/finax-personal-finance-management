@@ -8,7 +8,7 @@ import {
     Legend,
 } from "chart.js"
 
-import APIRents from "../../services/api/APIRents"
+import APIExpenses from "../../services/api/APIExpenses"
 import formatPrice from "../../utils/formatPrice"
 import Title from "../ui/Title"
 
@@ -20,13 +20,13 @@ ChartJS.register(
     Legend
 )
 
-interface Rent {
+interface Expense {
     createdAt: number
     value: number
 }
 
-export default function ChartTotalMonthsRent() {
-    const rents: Rent[] = APIRents.rents
+export default function ChartTotalMonthsExpense() {
+    const expenses: Expense[] = APIExpenses.expenses
 
     const now = new Date()
 
@@ -45,12 +45,12 @@ export default function ChartTotalMonthsRent() {
         monthsMap[key] = 0
     }
 
-    rents.forEach((rent) => {
-        const date = new Date(rent.createdAt)
+    expenses.forEach((expense) => {
+        const date = new Date(expense.createdAt)
         const key = `${date.getFullYear()}-${date.getMonth()}`
 
         if (key in monthsMap) {
-            monthsMap[key] += Number(rent.value)
+            monthsMap[key] += Number(expense.value)
         }
     })
 
@@ -58,9 +58,9 @@ export default function ChartTotalMonthsRent() {
         labels: monthsLabels,
         datasets: [
             {
-                label: "Total de Rendas",
+                label: "Total de Despesas",
                 data: Object.values(monthsMap),
-                backgroundColor: "#1DBF73",
+                backgroundColor: "#E5533D",
             },
         ],
     }
@@ -109,7 +109,7 @@ export default function ChartTotalMonthsRent() {
             }}
         >
             <Title
-                textContent="Entradas totais últimos 12 Mêses"
+                textContent="Despesas totais dos últimos 12 meses"
                 extraStyles="text-xl text-center text-brand-500 font-semibold"
             />
             <Bar data={data} options={options} />
