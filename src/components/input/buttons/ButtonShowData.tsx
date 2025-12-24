@@ -11,7 +11,7 @@ interface ButtonShowDataProps {
 export default function ButtonShowData({ setShowData, showData } : ButtonShowDataProps ) {
     return (
         <Button
-            extraStyles="p-2 rounded-full hover:text-white/70 cursor-pointer
+            extraStyles="p-1 rounded-full hover:text-white/70 cursor-pointer
                 transition duration-300"
             content={showData ? <FaEye size={24} /> : <FaEyeSlash size={24} />}
             handleClick={() => setShowData(!showData)}

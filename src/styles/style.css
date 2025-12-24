@@ -7,6 +7,7 @@
 @import "./animations/anim-message-open.css";
 @import "./animations/anim-config-close.css";
 @import "./animations/anim-config-open.css";
+@import "./animations/anim-reload.css";
 
 
 @theme {

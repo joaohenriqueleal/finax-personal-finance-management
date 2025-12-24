@@ -1,3 +1,0 @@
-- Inputs, Outputs, and Total with time selection in SectionBalance (pattern will 1month)
-- Compute balance logic in UserBalance
-- conclude 'getTotalExpensed' function in CategoriesProgressBar

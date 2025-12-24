@@ -55,7 +55,7 @@ export default function TopAppBar({ children, setShow, title }: TopAppBarProps) 
                 />
             </div>
             <div 
-                className="pr-2 scrollbar-thin
+                className="pr-2 scrollbar-thin overflow-auto
                 scrollbar-thumb-gray-300 scrollbar-track-transparent"
             >
                 {children}

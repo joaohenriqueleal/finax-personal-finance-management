@@ -1,5 +1,6 @@
 import { useState } from "react"
 
+import ButtonReloadPage from "../components/input/buttons/ButtonReloadPage"
 import ButtonShowData from "../components/input/buttons/ButtonShowData"
 import PageContainer from "../components/layout/PageContainer"
 import Header from "../components/layout/Header"
@@ -34,11 +35,12 @@ export default function Home({ setAuth } : HomeProps ) {
                 >
                     <div className="flex items-center justify-between">
                         <Menu setAuth={setAuth} />
-                        <div className="flex gap-2">
+                        <div className="flex gap-2.5">
                             <ButtonShowData
                                 setShowData={setShowBalance}
                                 showData={showBalance}
                             />
+                            <ButtonReloadPage />
                             <AboutAppBar />
                         </div>
                     </div>

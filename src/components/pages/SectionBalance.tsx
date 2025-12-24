@@ -1,7 +1,7 @@
 import { useState } from "react"
 
+import InAndOutsAppBar from "../windows/app-bar/InAndOutsAppBar"
 import UserBalance from "../layout/UserBalance"
-import TopAppBar from "../windows/TopAppBar"
 import Title from "../ui/Title"
 
 import { FaChevronRight } from "react-icons/fa"
@@ -24,7 +24,7 @@ export default function SectionBalance({ showBalance } : SectionBalanceProps ) {
                 <div className="flex items-center justify-between">
                     <Title
                         extraStyles="text-xl font-bold"
-                        textContent="Saldo"
+                        textContent="Balanço este mês"
                     />
                     <FaChevronRight
                         className="text-gray-500"
@@ -32,17 +32,13 @@ export default function SectionBalance({ showBalance } : SectionBalanceProps ) {
                 </div>
                 <UserBalance
                     showBalance={showBalance}
+                    extraStyles="text-xl"
                 />
             </section>
             {showTABBalances && (
-                <TopAppBar
+                <InAndOutsAppBar
                     setShow={setShowTABBalances}
-                    title="Entradas e saídas"
-                >
-                    <div className="text-black max-w-4xl m-auto">
-
-                    </div>
-                </TopAppBar>
+                />
             )}
         </>
     )

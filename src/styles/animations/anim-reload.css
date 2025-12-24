@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+
+@layer utilities {
+    @keyframes anim-reload {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .anim-reload {
+        animation: anim-reload .5s ease-in-out forwards;
+    }
+
+}
