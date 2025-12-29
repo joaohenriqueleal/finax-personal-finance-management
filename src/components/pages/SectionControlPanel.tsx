@@ -1,11 +1,12 @@
 import { useRef } from "react"
 
 import CategoriesAppBar from "../windows/app-bar/CategoriesAppBar"
+import StatisticsAppBar from "../windows/app-bar/StatisticsAppBar"
 import ExpensesAppBar from "../windows/app-bar/ExpensesAppBar"
 import RentAppBar from "../windows/app-bar/RentAppBar"
 import PanelOption from "../items/PanelOption"
 
-import { FaTh, FaArrowUp, FaArrowDown } from "react-icons/fa"
+import { FaTh, FaArrowUp, FaArrowDown, FaChartBar } from "react-icons/fa"
 
 
 export default function SectionControlPanel() {
@@ -61,6 +62,11 @@ export default function SectionControlPanel() {
                     icon={<FaArrowDown />}
                     Tab={ExpensesAppBar}
                     legend="Despesas"
+                />
+                <PanelOption
+                    icon={<FaChartBar />}
+                    Tab={StatisticsAppBar}
+                    legend="Estatísticas"
                 />
             </div>
         </section>
