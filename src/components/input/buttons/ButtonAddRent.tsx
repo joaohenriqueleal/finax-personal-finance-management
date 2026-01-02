@@ -30,7 +30,7 @@ export default function ButtonAddRent({ newRentDescription, newRentValue } : But
             <Button
                 extraStyles="bg-brand-300 p-4 text-white font-bold cursor-pointer
                     shadow-[2px_2px_green] hover:shadow-none hover:bg-brand-200
-                    transition duration-300"
+                    transition duration-300 mb-1"
                 handleClick={addRent}
                 content="Adicionar"
             />

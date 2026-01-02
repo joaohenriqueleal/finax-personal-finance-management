@@ -14,6 +14,7 @@ import AboutAppBar from "../components/windows/app-bar/AboutAppBar"
 // Sections
 import SectionControlPanel from "../components/pages/SectionControlPanel"
 import SectionBalance from "../components/pages/SectionBalance"
+import SectionVaults from "../components/pages/SectionVaults"
 
 import Globals from "../shared/Globals"
 
@@ -55,6 +56,7 @@ export default function Home({ setAuth } : HomeProps ) {
                     showBalance={showBalance}
                 />
                 <SectionControlPanel />
+                <SectionVaults />
             </Main>
         </PageContainer>
     )

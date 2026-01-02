@@ -53,15 +53,16 @@ export default function DayExpenseMean({ selectedTime }: DayExpenseMeanProps) {
     return (
         <>
             {mean ? (
-                <div className="w-full">
-                    <p className="text-sm font-bold text-brand-500">
-                        Média de gastos por dia
-                    </p>
-
-                    <Title
-                        extraStyles="py-4 text-brand-500"
-                        textContent={formatPrice(mean)}
-                    />
+                <div className="w-full bg-gray-100 p-4">
+                    <div className="w-full">
+                        <p className="text-sm font-bold text-brand-500">
+                            Média de gastos por dia
+                        </p>
+                        <Title
+                            extraStyles="py-4 text-brand-500"
+                            textContent={formatPrice(mean)}
+                        />
+                    </div>
                 </div>
             ) : (<></>)}
         </>

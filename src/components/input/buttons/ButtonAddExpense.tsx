@@ -35,7 +35,7 @@ export default function ButtonAddExpense(
                 handleClick={addExpense}
                 extraStyles="p-4 self-end bg-brand-300 text-white font-bold w-full
                     shadow-[2px_2px_green] hover:bg-brand-200 hover:shadow-none
-                    transition duration-300 cursor-pointer"
+                    transition duration-300 cursor-pointer mb-1"
                 content="Adicionar"
             />
             {showMessage && (

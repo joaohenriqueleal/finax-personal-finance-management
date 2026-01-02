@@ -30,7 +30,8 @@ export default function ButtonDeleteUser({ password, setAuth } : ButtonDeleteUse
         <>
             <Button
                 extraStyles="p-4 w-40 self-end bg-red-500 text-white font-bold shadow-[2px_2px_black]
-                    hover:shadow-none hover:bg-red-300 cursor-pointer transition duration-300"
+                    hover:shadow-none hover:bg-red-300 cursor-pointer transition duration-300
+                    mb-1"
                 handleClick={deleteUser}
                 content="Deletar"
             />

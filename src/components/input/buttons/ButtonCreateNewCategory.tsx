@@ -34,7 +34,7 @@ export default function ButtonCreateNewCategory(
             <Button
                 extraStyles="self-end p-4 bg-brand-300 w-full text-white font-bold
                     shadow-[2px_2px_green] hover:shadow-none hover:bg-brand-200
-                    transition duration-300 cursor-pointer"
+                    transition duration-300 cursor-pointer mb-1"
                 handleClick={createNewCategory}
                 content="Criar"
             />

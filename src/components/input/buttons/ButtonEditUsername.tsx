@@ -27,7 +27,8 @@ export default function ButtonEditUsername({ newUsername } : ButtonEditUsernameP
         <>
             <Button
                 extraStyles="p-4 w-40 self-end bg-brand-300 text-white font-bold shadow-[2px_2px_green]
-                    hover:shadow-none hover:bg-brand-200 cursor-pointer transition duration-300"
+                    hover:shadow-none hover:bg-brand-200 cursor-pointer transition duration-300
+                    mb-1"
                 handleClick={editUsername}
                 content='Editar'
             />

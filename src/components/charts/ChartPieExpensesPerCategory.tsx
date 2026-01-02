@@ -112,13 +112,13 @@ export default function ChartPieExpensesPerCategory({
     }
 
     return (
-        <div className="w-full max-w-[360px] h-[260px] mx-auto bg-white
-            rounded-2xl p-6 shadow-sm border border-gray-200">
-            <Pie
-                data={data}
-                options={options}
-                plugins={[ChartDataLabels]}
-            />
-        </div>
+            <div className="w-full max-w-[360px] h-[260px] mx-auto bg-white
+                rounded-2xl p-6 shadow-sm border border-gray-200">
+                <Pie
+                    plugins={[ChartDataLabels]}
+                    options={options}
+                    data={data}
+                />
+            </div>
     )
 }

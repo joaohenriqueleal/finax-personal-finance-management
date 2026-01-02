@@ -38,7 +38,7 @@ export default function ProfileConfigAppBar({ setShowConfigTAB, setAuth } : Prof
                 <button
                     className="flex gap-2 p-4 bg-red-500 w-full text-white
                         font-bold items-center shadow-[2px_2px_black] hover:shadow-none
-                        transition duration-300 cursor-pointer hover:bg-red-300"
+                        transition duration-300 cursor-pointer hover:bg-red-300 mb-1"
                     onClick={() => setShowTABDeleteUser(true)}
                 >
                     <FaTrash /> Deletar usuário
