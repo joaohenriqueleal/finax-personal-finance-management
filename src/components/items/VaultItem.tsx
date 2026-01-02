@@ -20,7 +20,7 @@ export default function VaultItem({ vault } : VaultItemProps ) {
             <div
                 className="bg-gray-200/70 p-2 rounded-md flex flex-col gap-4 shadow
                     hover:shadow-md transition duration-300 cursor-pointer transform
-                    hover:-translate-y-1 hover:bg-gray-100 max-w-40"
+                    hover:-translate-y-1 hover:bg-gray-100 max-w-40 w-[124px] md:w-max"
                 onClick={() => setShowVaultDetailsAppBar(true)}
             >
                 <div>

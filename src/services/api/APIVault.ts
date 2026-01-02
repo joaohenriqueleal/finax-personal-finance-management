@@ -115,4 +115,13 @@ export default abstract class APIVault {
         return { success: 'Dinheiro resgatado com sucesso!' }
     }
 
+    static deleteVault(vaultName: string) : APIResponse {
+        this.vaults = this.vaults.filter(
+            v => v.name.toLowerCase() != vaultName.toLowerCase()
+        )
+        this.saveVaults()
+
+        return { success: 'Cofre deletado com sucesso!' }
+    }
+
 }

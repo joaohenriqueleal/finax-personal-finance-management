@@ -1,16 +1,19 @@
 import { useState } from "react"
 
+import VaultsDeletionAppBar from "./VaultsDeletionAppBar"
 import RendeemMoneyAppBar from "./RendeemMoneyAppBar"
+import AboutVaultsAppBar from "./AboutVaultsAppBar"
 import SaveMoneyAppBar from "./SaveMoneyAppBar"
 import TopAppBar from "../TopAppBar"
 import Title from "../../ui/Title"
 import Img from "../../ui/Img"
 
-import CashImage from '../../../assets/imgs/cash.jpg'
 import formatPrice from "../../../utils/formatPrice"
+
+import CashImage from '../../../assets/imgs/cash.jpg'
 import type { Vault } from "../../../types/Vault"
 
-import { FaArrowDown, FaArrowUp } from "react-icons/fa"
+import { FaArrowDown, FaArrowUp, FaInfoCircle, FaTrash } from "react-icons/fa"
 
 interface VaultDatailsAppBarProps {
     setShow: React.Dispatch<React.SetStateAction<boolean>>
@@ -21,6 +24,9 @@ interface VaultDatailsAppBarProps {
 export default function VaultDatailsAppBar({ setShow, vault } : VaultDatailsAppBarProps ) {
     const [showRedeemMoneyAppBar, setShowRedeemMoneyAppBar] = useState<boolean>(false)
     const [showSaveMoneyAppBar, setShowSaveMoneyAppBar] = useState<boolean>(false)
+
+    const [showVaultsInfoAppBar, setShowVaultsInfoAppBar] = useState<boolean>(false)
+    const [showVaultsDeletionAppBar, setShowVaultsDeletionAppBar] = useState<boolean>(false)
     
     return (
         <TopAppBar
@@ -28,21 +34,44 @@ export default function VaultDatailsAppBar({ setShow, vault } : VaultDatailsAppB
             setShow={setShow}
         >
             <div
-                className="flex flex-col text-black max-w-3xl mx-auto bg-gray-100/70cofre de porquinho
-                Ferrari
-                
-                R$ 29.990,00
+                className="flex flex-col text-black max-w-3xl mx-auto bg-gray-100/70
                     rounded-xl shadow mb-1"
             >
+            <div className="relative">
                 <Img
-                    extraStyles="w-full h-max max-h-100 bh-60 rounded-xl shadow-xl"
+                    extraStyles="w-full h-max object-cover rounded-xl shadow-xl"
                     alt="Cofre de porquinho"
                     src={CashImage}
                 />
+                <button
+                    className="
+                        absolute top-3 right-3
+                        bg-white/60 backdrop-blur
+                        rounded-full cursor-pointer
+                        text-white hover:bg-black/40
+                        transition duration-300
+                    "
+                    onClick={() => setShowVaultsInfoAppBar(true)}
+                >
+                    <FaInfoCircle size={22} />
+                </button><button
+                    className="
+                        absolute top-3 right-11
+                        backdrop-blur
+                        rounded-full cursor-pointer
+                        text-white hover:text-red-600
+                        transition duration-300
+                    "
+                    onClick={() => setShowVaultsDeletionAppBar(true)}
+                >
+                    <FaTrash size={20} />
+                </button>
+
+            </div>
                 <div className="flex flex-col gap-8 p-6">
                     <div className="flex flex-col gap-2">
                         <Title
-                            textContent={formatPrice(vault.balance)}
+                            textContent={formatPrice(vault.balance) + ' /'}
                             extraStyles="text-brand-500 text-4xl"
                         />
                         <Title
@@ -81,6 +110,13 @@ export default function VaultDatailsAppBar({ setShow, vault } : VaultDatailsAppB
                             Retirar <FaArrowUp />
                         </button>
                     </div>
+                    <div>
+                        <p className="text-gray-600 text-sm font-bold">Fatam para o objetivo:</p>
+                        <Title
+                            textContent={formatPrice(vault.goal - vault.balance)}
+                            extraStyles="text-xl"
+                        />
+                    </div>
                 </div>
             </div>
             {showSaveMoneyAppBar && (
@@ -93,6 +129,17 @@ export default function VaultDatailsAppBar({ setShow, vault } : VaultDatailsAppB
                 <RendeemMoneyAppBar
                     setShow={setShowRedeemMoneyAppBar}
                     vaultName={vault.name}
+                />
+            )}
+            {showVaultsInfoAppBar && (
+                <AboutVaultsAppBar
+                    setShow={setShowVaultsInfoAppBar}
+                />  
+            )}
+            {showVaultsDeletionAppBar && (
+                <VaultsDeletionAppBar
+                    setShow={setShowVaultsDeletionAppBar}
+                    vault={vault}
                 />
             )}
         </TopAppBar>
