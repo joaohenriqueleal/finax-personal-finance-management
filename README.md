@@ -37,6 +37,10 @@ O desenvolvimento da Finax foi fundamental para consolidar e expandir meus conhe
 
 ## Screenshots
 
+![Home](https://raw.githubusercontent.com/joaohenriqueleal/finax-personal-finance-management/main/screenshots/home.png)
+
+![Graphic](https://raw.githubusercontent.com/joaohenriqueleal/finax-personal-finance-management/main/screenshots/graphic.png)
+
 ## Contatos
 
 E-mail: joaohenriquelealdesouza001@gmail.com
